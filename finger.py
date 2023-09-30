@@ -1,9 +1,9 @@
 import cv2
 
 def count_digits(image):
-    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)  # Correct the color conversion
-    _, thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)  # Correct the thresholding
-    contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)  # Fix typo in 'contours' and 'digit_count'
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY) 
+    _, thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)  
+    contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE) 
 
     digit_count = 0
 
@@ -11,10 +11,10 @@ def count_digits(image):
         area = cv2.contourArea(contour)
 
         if area > 100:
-            digit_count += 1  # Fix typo in 'digit_count'
+            digit_count += 1  
     return digit_count
 
-cap = cv2.VideoCapture(0)  # Use the default camera (0) instead of camera (1)
+cap = cv2.VideoCapture(0) 
 
 while True:
     ret, frame = cap.read()
